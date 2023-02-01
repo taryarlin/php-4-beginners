@@ -18,7 +18,11 @@
                                         rows="3"
                                         placeholder="Here's an ida for a note..."
                                         class="p-4 mt-1 block w-full rounded-md border-gray-300 shadow-sm"
-                                    ></textarea>
+                                    ><?= $_POST['body'] ?? '' ?></textarea>
+
+                                    <?php if(isset($errors['body'])) : ?>
+                                        <p class="text-red-500 text-xs mt-22"><?= $errors['body'] ?></p>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                         </div>
