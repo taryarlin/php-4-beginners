@@ -9,5 +9,4 @@
 </head>
 <body class="h-full">
     <div class="min-h-full">
-    <?php include('nav.php') ?>
-    <?php //include('banner.php')?>
+    <?php require base_path('views/partials/nav.php') ?>

@@ -1,4 +1,3 @@
 <?php
-$page_title = 'This is about page.';
 
-require 'views/about.view.php';
+view("about.view.php", ['heading' => 'About Us', 'page_title' => 'Hello world']);
