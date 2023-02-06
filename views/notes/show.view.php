@@ -3,9 +3,10 @@
 
 <main>
     <div class="mx-auto max-w-7xl py-6 text-center">
-        <p><?= htmlspecialchars($note['body']) ?></p>
+        <p><?= $note['body'] ?></p>
 
         <form class="mt-6" method="POST" id="delete_form">
+            <input type="hidden" name="_method" value="DELETE">
             <input type="hidden" name="id" value="<?= $note['id'] ?>">
             <button class="text-sm text-red-500">Delete</button>
         </form>
