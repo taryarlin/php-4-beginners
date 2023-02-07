@@ -13,8 +13,6 @@ class Router
             'controller' => $controller,
             'method' => $method
         ];
-
-        // dd($this->routes);
     }
 
     public function get($uri, $controller)
