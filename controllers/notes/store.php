@@ -1,10 +1,11 @@
 <?php
+
+
 use Core\App;
+use Core\Database;
 use Core\Validator;
 
-require base_path('Core/Validator.php');
-
-$db = App::resolve('Core\Database');
+$db = App::resolve(Database::class);
 
 $errors = [];
 
@@ -13,10 +14,10 @@ if (!Validator::string($_POST['body'], 1, 1000)) {
 }
 
 if (empty($errors)) {
-    $db->query("INSERT INTO notes(body, user_id) VALUES (:body, :user_id)", [
+    $db->query("INSERT INTO notes(body, user_id, created_at) VALUES (:body, :user_id, :created_at)", [
         'body' => $_POST['body'],
-        "user_id" => 1
-        // 'user_id' => rand(1, 5)
+        "user_id" => 1,
+        'created_at' => date('Y-m-d H:i:s'),
     ]);
 
     $_POST['body'] = '';
@@ -24,6 +25,8 @@ if (empty($errors)) {
     header('location: /notes');
     exit();
 }
+
+$_SESSION['errors'] = $errors;
 
 header('location: /notes/create');
 exit();

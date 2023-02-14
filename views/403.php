@@ -6,6 +6,7 @@
 
         <p class="mt-4">
             <a href="/" class="text-blue-500 underline">Go back home.</a>
+            <a href="/login" class="text-yellow-600 underline">Login.</a>
         </p>
     </div>
 </main>

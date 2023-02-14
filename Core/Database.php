@@ -46,4 +46,8 @@ class Database
 
         return $result;
     }
+
+    // public function findByEmailAndPassword($email, $password)
+    // {
+    // }
 }

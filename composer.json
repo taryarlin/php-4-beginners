@@ -1,0 +1,17 @@
+{
+    "name": "taryar/php_lesson",
+    "authors": [
+        {
+            "name": "Taryar Linn Phyar",
+            "email": "35889976+taryarlin@users.noreply.github.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Taryar\\PhpLesson\\": "src/"
+        }
+    },
+    "require": {
+        "nesbot/carbon": "^2.66"
+    }
+}

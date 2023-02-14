@@ -5,10 +5,14 @@
     <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
         <div class="md:grid md:grid-cols-2 md:gap-6">
             <div class="mt-5 md:col-span-2 md:mt-0">
-                <form method="POST" action="/notes">
+                <form method="POST" action="/notes" id="note_form">
                     <div class="shadow sm:rounded-md sm:overflow-hidden">
                         <div class="space-y-6 bg-white px-4 py-5 sm:p-6">
                             <div>
+                            <?php if(isset($_SESSION['errors'])) : ?>
+                                <div class="px-4 py-3 bg-red-100 text-rose-700 rounded mb-4"><?= $_SESSION['errors']['body'] ?></div>
+                            <?php endif ?>
+
                                 <label for="body" class="block text-sm font-medium text-gray-700">Body</label>
 
                                 <div class="mt-1">
@@ -38,3 +42,13 @@
 </main>
 
 <?php require base_path('views/partials/footer.php'); ?>
+
+<script>
+    $('#note_form').validate({
+        rules: {
+            body: {
+                required: true,
+            }
+        }
+    });
+</script>

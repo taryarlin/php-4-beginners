@@ -43,3 +43,26 @@ function view($path, $attribute = [])
 
     require base_path('views/' . $path);
 }
+
+function redirectTo($path = '')
+{
+    header("location: /{$path}");
+    exit();
+}
+
+function setError($message)
+{
+    $errors[] = $message;
+
+    $_SESSION['errors'] = $errors;
+}
+
+function setSuccessMessage($message)
+{
+    $_SESSION['success'] = $message;
+}
+
+function checkAuth() 
+{
+    return isset($_SESSION['auth_user']);
+}
