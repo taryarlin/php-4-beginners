@@ -4,7 +4,7 @@
 <main>
 <?php include(base_path('views/partials/page_info.php')) ?>
 
-    <div class="mx-auto max-w-7xl py-6">
+    <div class="mx-auto max-w-4xl py-6">
         <div class="mb-6">
             <a href="/notes/create" class="px-3 py-2 bg-blue-700 hover:bg-blue-800 rounded text-white rounded">Add Note</a>
         </div>
@@ -30,7 +30,7 @@
                             </td>
 
                             <td>
-                                <a href="#" class="px-3 py-1 bg-rose-600 rounded text-white text-sm">Delete</a>
+                                <a href="#" class="px-3 py-1 bg-rose-600 rounded text-white text-sm delete_note">Delete</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -41,3 +41,9 @@
 </main>
 
 <?php require base_path('views/partials/footer.php'); ?>
+
+<!-- <script>
+    $(document).on('click', '.delete_note', function(e) {
+        e.preventDefault();
+    })
+</script> -->
