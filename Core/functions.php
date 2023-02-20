@@ -62,7 +62,16 @@ function setSuccessMessage($message)
     $_SESSION['success'] = $message;
 }
 
-function checkAuth() 
+function checkAuth()
 {
     return isset($_SESSION['auth_user']);
+}
+
+function getAuthUser()
+{
+    if (checkAuth()) {
+        return $_SESSION['auth_user'];
+    }
+
+    return null;
 }

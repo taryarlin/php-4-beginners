@@ -19,7 +19,6 @@
 
 <script>
     $(document).ready(function() {
-        $('#data_table').DataTable();
         setTimeout(() => {
             $('#error_message').fadeOut();
 

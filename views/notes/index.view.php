@@ -15,7 +15,7 @@
                     <tr>
                         <th>#ID</th>
                         <th>Body</th>
-                        <th>Action</th>
+                        <th width="20%">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -30,7 +30,8 @@
                             </td>
 
                             <td>
-                                <a href="#" class="px-3 py-1 bg-rose-600 rounded text-white text-sm delete_note">Delete</a>
+                                <a href="/note/edit?id=<?= $note['id'] ?>" class="px-3 py-1 bg-yellow-500 rounded text-white text-sm">Edit</a>
+                                <a href="#" class="px-3 py-1 bg-rose-600 rounded text-white text-sm delete_note" data-id="<?= $note['id'] ?>">Delete</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -42,8 +43,33 @@
 
 <?php require base_path('views/partials/footer.php'); ?>
 
-<!-- <script>
+<script>
+    $('#data_table').DataTable();
+
     $(document).on('click', '.delete_note', function(e) {
         e.preventDefault();
+
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    url: '/note',
+                    method: 'POST',
+                    data: {
+                        id: $(this).data('id'),
+                        _method: 'DELETE'
+                    }
+                }).done((result) => {
+                    location.reload();
+                })
+            }
+        })
     })
-</script> -->
+</script>

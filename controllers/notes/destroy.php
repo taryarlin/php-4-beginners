@@ -10,5 +10,6 @@ authorize($note['user_id'] == $current_user_id);
 
 $db->query('delete from notes where id = :id', ['id' => $_POST['id']]);
 
-header('location: /notes');
-exit();
+echo json_encode(['result' => true, 'message' => 'Note is successfully deleted']);
+// header('location: /notes');
+// exit();
