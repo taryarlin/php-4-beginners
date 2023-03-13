@@ -62,6 +62,20 @@ function setSuccessMessage($message)
     $_SESSION['success'] = $message;
 }
 
+function with($key, $message)
+{
+    $_SESSION[$key] = $message;
+}
+
+function session($key)
+{
+    if (isset($_SESSION[$key])) {
+        return $_SESSION[$key];
+    }
+
+    return null;
+}
+
 function checkAuth()
 {
     return isset($_SESSION['auth_user']);
@@ -74,4 +88,9 @@ function getAuthUser()
     }
 
     return null;
+}
+
+function bcrypt($value)
+{
+    return md5($value);
 }

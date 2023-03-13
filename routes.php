@@ -3,6 +3,18 @@
 $router->get('/', 'controllers/index.php');
 $router->get('/about', 'controllers/about.php');
 
+# Admin
+$router->get('/admin', 'controllers/backend/admin/index.php')->only('auth');
+$router->get('/admin/accounts', 'controllers/backend/admin/account/index.php')->only('auth');
+$router->get('/admin/accounts/create', 'controllers/backend/admin/account/create.php')->only('auth');
+$router->post('/admin/accounts', 'controllers/backend/admin/account/store.php')->only('auth');
+$router->get('/admin/accounts/delete', 'controllers/backend/admin/account/delete.php')->only('auth');
+$router->delete('/admin/accounts/destroy', 'controllers/backend/admin/account/destroy.php')->only('auth');
+
+$router->get('/admin/login', 'controllers/backend/admin/getLogin.php')->only('guest');
+$router->post('/admin/login', 'controllers/backend/admin/login.php')->only('guest');
+$router->get('/admin/logout', 'controllers/backend/admin/logout.php')->only('auth');
+
 // Notes
 # Read
 $router->get('/notes', 'controllers/notes/index.php');

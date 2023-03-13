@@ -15,4 +15,9 @@ class Validator
     {
         return filter_var($value, FILTER_VALIDATE_EMAIL);
     }
+
+    public static function confirmPassword($password, $password_confirmation)
+    {
+        return $password === $password_confirmation;
+    }
 }
