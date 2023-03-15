@@ -46,6 +46,7 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
 
     <script src="//cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
   </body>
 </html>
 

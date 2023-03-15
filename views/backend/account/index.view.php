@@ -3,6 +3,7 @@
     <a href="/admin/accounts/create" class="btn btn-primary btn-sm">
         <span class="tf-icons bx bx-plus-medical"></span> Create Account
     </a>
+    </a>
 </div>
 
 <div class="table-responsive mt-4 table-wrapper">

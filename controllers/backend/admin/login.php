@@ -14,7 +14,7 @@ $user = $db->query('SELECT * from users where email = :email AND password = :pas
 ])->find();
 
 if ($user) {
-    $_SESSION['auth_user'] = $user;
+    login($user);
 
     redirectTo('admin');
 }

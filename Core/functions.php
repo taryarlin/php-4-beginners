@@ -94,3 +94,42 @@ function bcrypt($value)
 {
     return md5($value);
 }
+
+function login($user)
+{
+    $_SESSION['auth_user'] = $user;
+}
+
+function logout()
+{
+    unset($_SESSION['auth_user']);
+}
+
+function str_random($n)
+{
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $randomString = '';
+
+    for ($i = 0; $i < $n; $i++) {
+        $index = rand(0, strlen($characters) - 1);
+        $randomString .= $characters[$index];
+    }
+
+    return $randomString;
+}
+
+function upload($file, $path)
+{
+    // Check for errors
+    if ($file['error'] !== UPLOAD_ERR_OK) {
+        throw new Exception('Upload failed with error code ' . $file['error']);
+    }
+
+    // Move the uploaded file to a new location
+    $destination =  $path . str_random(10) . '_' . $file['name'];
+    if (!move_uploaded_file($file['tmp_name'], $destination)) {
+        throw new Exception('Failed to move uploaded file');
+    }
+
+    return $destination;
+}

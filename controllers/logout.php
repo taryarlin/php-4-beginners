@@ -1,6 +1,6 @@
 <?php
 
-unset($_SESSION['auth_user']);
+logout();
 
 setSuccessMessage('Successfully logged out');
 redirectTo('login');
